@@ -4,11 +4,22 @@
 In der Datei "config.json" alle werte setzen
 Die zu versendende Nachricht kann hier auch angepasst werden
 
-## Anwendung
-Python muss installiert sein (3.xx)
-in cmd: python hashtag.py <Hashtag> <Anzahl Posts>
+## Anwendung 
+Python Version 3 oder höher muss installiert sein
 
-Hashtag geht auch ohne, # nicht schrieben
-Anzahl posts ist standartmässig 10, keine Ahnung wie viele Anfragen maximal möglich sind
+### Hashtag
+```console
+python hashtag.py <Hashtag> <Anzahl Posts>
+```
+
+Hashtag ohne # schreiben, nur Text
+Default Wert für Anzahl Posts ist 10
+
 
 Alle gefundenen Benutzer erhalten die gleichen Nachricht zugesendet
+
+### Username
+TODO
+
+## Other
+Weiss nicht wie viele User ich maximal pro Stunden finden kann, müsste man noch genauer ausprobieren
