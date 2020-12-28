@@ -9,13 +9,14 @@ Python Version 3 oder höher muss installiert sein
 
 ### Config
 Die Datei config.json muss wie folgt aufgebaut sein. Die Werte müssen vor dem Benutzen angepasst werden
+MessageDelay = Wartezeit zwischen dem senden von Nachrichten. Damit kann limitiert werden wie viele Nachrichten pro Zeit gesendet werden. Zeitangabe in ms.
 
 ```json
 {
     "InstaUser": "Benutzername Instagram",
     "InstaPassword": "Password Instagram",
     "Message": "Nachricht, welche gesendet wird",
-    "MessageDelay": 0 // Delay zwischen dem senden von nachrichten
+    "MessageDelay": 0
 }
 ```
 
@@ -27,21 +28,17 @@ python hashtag.py <Hashtag> <Anzahl Posts>
 Hashtag ohne # schreiben, nur Text
 Default Wert für Anzahl Posts ist 10
 
-
 Alle gefundenen Benutzer erhalten die gleichen Nachricht zugesendet
 
-### user
+### Username
 ```console
 python user.py <username> <Anzahl follower>
 ```
 
 Anzahl Follower schränkt ein, wie viele Follower angeschaut werden. Default Wert ist 100
 
-
 Alle gefundenen Benutzer erhalten die gleichen Nachricht zugesendet
 
-### Username
-TODO
 
 ## Other
 Weiss nicht wie viele User ich maximal pro Stunden finden kann, müsste man noch genauer ausprobieren
