@@ -34,7 +34,6 @@ ig.state.generateDevice(config.InstaUser);
     // send messages
     message(newUsers);
     fs.writeFileSync("messagedUsers.json", JSON.stringify(combinedUsers));
-    console.log("Finished sending messages");
 })();
 
 // Custom timer for wait during iteration
@@ -43,12 +42,27 @@ const timer = ms => new Promise(res => setTimeout(res, ms));
 // Message all the users given in the "users" array
 async function message(users) {    
     for(const user of users) {
-        console.log("Messaging User: ", user);
-        const userID = await ig.user.getIdByUsername(user);
-        console.log("userID: ", userID);
+        console.log(`\nTrying to message user "${user}"`);
+        let userID = 0;
 
+        // try finding userID
+        try {
+            userID = await ig.user.getIdByUsername(user);
+            console.log(`Found user with userID ${userID}`);
+        } catch (error) {
+            console.error(`"${user}" was not found. You may be blocked by this user.`)
+        }       
+
+        // create message thread
         const thread = ig.entity.directThread([userID.toString()]);
-        await thread.broadcastText(config.Message);
+
+        // try sending messages
+        try {
+            await thread.broadcastText(config.Message);
+            console.log(`Successfully sent message to "${user}`);
+        } catch (error) {
+            console.error(`Message could not be sent to "${user}". Will still be added to messagedUsers. Please contact manually or ignore.`)
+        }
 
         // Delay before next execution
         await timer(config.MessageDelay);
