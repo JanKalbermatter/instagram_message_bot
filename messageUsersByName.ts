@@ -48,10 +48,17 @@ async function message(users) {
         // try finding userID
         try {
             userID = await ig.user.getIdByUsername(user);
-            console.log(`Found user with userID ${userID}`);
+            console.log(`Found user with userID ${userID}"`);
         } catch (error) {
             console.error(`"${user}" was not found. You may be blocked by this user.`)
-        }       
+        }          
+
+        // Follow the user if not already 
+        const profile = ig.entity.profile(userID.toString());
+        let status = await profile.client.friendship.show(userID);
+        if(status.following === false)
+            console.log(`Not currently following "${user}". Sending Request.`);
+            await profile.client.friendship.create(userID);     
 
         // create message thread
         const thread = ig.entity.directThread([userID.toString()]);
