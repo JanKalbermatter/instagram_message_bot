@@ -63,8 +63,8 @@ node messageUsers.ts
 
 ## Other
 Weiss nicht wie viele User ich maximal pro Stunden finden kann, müsste man noch genauer ausprobieren.
-Ich gleube mit allen Befehlen unter "Anwendung" sollte es funktionieren, bin mir aber nicht 100% sicher (im lazy, fuck testing that shit on another PC :))
+Ich glaube mit allen Befehlen unter "Anwendung" sollte es funktionieren, bin mir aber nicht 100% sicher (Habe keinen anderen PC zum testen)
 
-Die Datei "messagedUsers.json" muss existieren, kann aber leer sein (once again, lazyness :) File should be in repository so w/e)
+Die Datei "messagedUsers.json" muss existieren, kann aber leer sein (Datei sollte eigentlich im Repository sein)
 In dieser Datei befinden sich die Benutzernamen aller User welche bereits einmal angeschrieben wurden (doppeltes Anschreiben verhindern)
 
