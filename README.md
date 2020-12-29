@@ -1,10 +1,9 @@
 # instagram_message_bot
 
-## Config Date
-In der Datei "config.json" alle werte setzen
-Die zu versendende Nachricht kann hier auch angepasst werden
-
 ## Anwendung 
+Die beiden Python Skripts sind dafür verantwortlich eine Liste mit Benutzernamen zu generieren und diese in einer JSON Datei zu speichern.
+Die beiden TypeScript Skripts lesen diese Daten anschliessend aus und senden jedem dieser Benutzer eine Nachricht.
+
 Python Version 3.5 oder höher muss installiert sein. 
 pip muss installiert sein. 
 Aktualle Node und npm version muss installiert sein.
@@ -57,10 +56,13 @@ Anzahl Follower schränkt ein, wie viele Follower angeschaut werden. Default Wer
 Alle gefundenen Benutzer erhalten die gleichen Nachricht zugesendet
 
 ### Custom
-Es besteht auch die möglichkeit eine eigene Liste mit Benutzernamen anzugeben. Dazu einfach ein Array in korrektem JSON Format in die Datei "users.json" speichern und folgenden Befehl in der Console ausführen: 
+Es besteht auch die möglichkeit eine eigene Liste mit Benutzernamen anzugeben. Dazu einfach ein Array in korrektem JSON Format in die Datei "users.json" speichern und einen der beiden folgenden Befehlen in der Console ausführen: 
 ```console
-node messageUsers.ts
+node messageUsersByHashtag.ts
+node messageUsersByName.ts
 ```
+messageUsersByHashtag.ts benutzt die Nachricht aus MessageHashtag in der Config
+messageUsersByName.ts benutzt die Nachricht aus MessageUsername in der Config
 
 ## Other
 Weiss nicht wie viele User ich maximal pro Stunden finden kann, müsste man noch genauer ausprobieren.
