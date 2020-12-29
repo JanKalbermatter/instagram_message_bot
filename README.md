@@ -31,7 +31,8 @@ MessageDelay = Wartezeit zwischen dem senden von Nachrichten. Damit kann limitie
 {
     "InstaUser": "Benutzername Instagram",
     "InstaPassword": "Password Instagram",
-    "Message": "Nachricht, welche gesendet wird",
+    "MessageHashtag": "Nachricht, welche bei Hashtag gesendet wird",
+    "MessageUsername": "Nachricht, welche bei Username gesendet wird",
     "MessageDelay": 0
 }
 ```
