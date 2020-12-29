@@ -51,14 +51,39 @@ async function message(users) {
             console.log(`Found user with userID ${userID}"`);
         } catch (error) {
             console.error(`"${user}" was not found. You may be blocked by this user.`)
-        }          
+        }       
+        // Get the target's profile
+        const profile = ig.entity.profile(userID.toString());
+
+        // Check Category and Bio
+        let info = await profile.client.user.info(userID)
+        let isARapper = false;
+        const bio = info.biography.toLowerCase();
+        const category = info.category;
+        const external_url =  info.external_url.toLowerCase();
+
+        // We assume User is a rapper
+        if (category == 'Artist' || category == "Musician/Band" || external_url.includes("music.apple.com") || external_url.includes("open.spotify.com") || bio.includes("artist") || bio.includes("unsigned artist")) {
+            isARapper = true;
+        }
+
+        // We assume User is not a rapper
+        if (bio.includes("producer") || bio.includes("beatmaker") || bio.includes("making beats") || bio.includes("beats for you") || bio.includes("buy beats") || bio.includes("get beats") || bio.includes("find beats") || ((bio.includes("arts") || bio.includes("art")) && bio.includes("make")) || bio.includes("logo") || bio.includes("graphic design") || bio.includes("toon your picture") || ((bio.includes("make") || bio.includes("design")) && bio.includes("album cover")) || bio.includes("new beat") || external_url.includes("beatstars")) {
+            isARapper = false
+        }
+
+        // If user is not a rapper got to next user
+        if(!isARapper) {
+            console.log(`"${user}" is not a rapper. Skipping.`);
+            continue;
+        }
 
         // Follow the user if not already 
-        const profile = ig.entity.profile(userID.toString());
         let status = await profile.client.friendship.show(userID);
-        if(status.following === false)
+        if(status.following === false) {
             console.log(`Not currently following "${user}". Sending Request.`);
-            await profile.client.friendship.create(userID);     
+            await profile.client.friendship.create(userID);  
+        }   
 
         // create message thread
         const thread = ig.entity.directThread([userID.toString()]);
