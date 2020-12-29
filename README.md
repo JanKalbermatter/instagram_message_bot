@@ -1,7 +1,7 @@
 # instagram_message_bot
 
 ## Anwendung 
-Die beiden Pyhton Skripts sind dafür verantwortlich eine Liste mit Benutzernamen zu generieren und diese in einer JSON Datei zu speichern.
+Die beiden Python Skripts sind dafür verantwortlich eine Liste mit Benutzernamen zu generieren und diese in einer JSON Datei zu speichern.
 Die beiden TypeScript Skripts lesen diese Daten anschliessend aus und senden jedem dieser Benutzer eine Nachricht.
 
 Python Version 3.5 oder höher muss installiert sein. 
