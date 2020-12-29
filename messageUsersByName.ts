@@ -63,12 +63,12 @@ async function message(users) {
         const external_url =  info.external_url.toLowerCase();
 
         // We assume User is a rapper
-        if (category == 'Artist' || category == "Musician/Band" || external_url.includes("music.apple.com") || external_url.includes("open.spotify.com") || bio.includes("artist") || bio.includes("unsigned artist")) {
+        if (category == "Musician/Band" || external_url.includes("music.apple.com") || external_url.includes("open.spotify.com") || bio.includes("artist") || bio.includes("unsigned artist")) {
             isARapper = true;
         }
 
         // We assume User is not a rapper
-        if (bio.includes("producer") || bio.includes("beatmaker") || bio.includes("making beats") || bio.includes("beats for you") || bio.includes("buy beats") || bio.includes("get beats") || bio.includes("find beats") || ((bio.includes("arts") || bio.includes("art")) && bio.includes("make")) || bio.includes("logo") || bio.includes("graphic design") || bio.includes("toon your picture") || ((bio.includes("make") || bio.includes("design")) && bio.includes("album cover")) || bio.includes("new beat") || external_url.includes("beatstars")) {
+        if (bio.includes("producer") || bio.includes("beatmaker") || bio.includes("making beats") || bio.includes("beats for you") || bio.includes("buy beats") || bio.includes("get beats") || bio.includes("find beats") || ((bio.includes("arts") || bio.includes("art")) && bio.includes("make")) || bio.includes("logo") || bio.includes("graphic design") || bio.includes("toon your picture") || ((bio.includes("make") || bio.includes("design")) && bio.includes("album cover")) || bio.includes("new beat") || bio.includes("cover art") || external_url.includes("beatstars")) {
             isARapper = false
         }
 
