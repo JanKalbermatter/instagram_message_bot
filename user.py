@@ -57,4 +57,4 @@ if __name__ == "__main__":
         json.dump(users, outfile)
 
     # Call node subprocess to message users
-    subprocess.call("node messageUsers.ts")
+    subprocess.call("node messageUsersByName.ts")

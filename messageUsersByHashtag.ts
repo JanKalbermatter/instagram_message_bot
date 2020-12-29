@@ -58,13 +58,14 @@ async function message(users) {
 
         // try sending messages
         try {
-            await thread.broadcastText(config.Message);
+            await thread.broadcastText(config.MessageHashtag);
             console.log(`Successfully sent message to "${user}`);
         } catch (error) {
             console.error(`Message could not be sent to "${user}". Will still be added to messagedUsers. Please contact manually or ignore.`)
         }
 
         // Delay before next execution
-        await timer(config.MessageDelay);
+        let delay = config.MessageDelay + (Math.random() * 3000) // increase delay up to 3s 
+        await timer(delay);
     }
 }

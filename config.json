@@ -1,6 +1,7 @@
 {
     "InstaUser": "##username",
     "InstaPassword": "##password",
-    "Message": "##mesage",
+    "MessageHashtag": "##messageHashtag",
+    "MessageUsername": "##messageUsername",
     "MessageDelay": 0
 }
